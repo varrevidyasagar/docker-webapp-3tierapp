@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+
+  database:
+
+    build: ./Docker-db
+
+    container_name: devopsdb
+
+    ports:
+      - "3306:3306"
+
+  application:
+
+    build: ./Docker-app
+
+    container_name: appcon
+
+    ports:
+      - "1222:8080"
+
+    depends_on:
+      - database
